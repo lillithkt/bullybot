@@ -2,11 +2,11 @@ FROM node:18
 
 # install python and make
 RUN apt-get update && \
-	apt-get install -y python3 build-essential && \
-	apt-get purge -y --auto-remove
+  apt-get install -y python3 build-essential && \
+  apt-get purge -y --auto-remove
 
 RUN groupadd -r runner && \
-	useradd --create-home --home /home/runner -r -g runner runner
+  useradd --create-home --home /home/runner -r -g runner runner
 
 USER runner
 WORKDIR /home/runner
@@ -17,4 +17,4 @@ VOLUME [ "/home/runner" ]
 
 COPY --chown=runner:runner  . .
 
-ENTRYPOINT [ "npm", "run", "prod" ]
+ENTRYPOINT [ "yarn", "run", "prod" ]

@@ -1,5 +1,6 @@
 version: '3'
 services:
-  nodeproject:
+  bullybot:
     build: .
-    env_file: .env
+    volumes:
+      - ./config.json:/home/runner/config.json:rw
