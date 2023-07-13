@@ -2,7 +2,7 @@
   "scripts": {
     "watch": "tsc -p tsconfig.json --watch",
     "build": "tsc -p tsconfig.json",
-    "prod": "npm run build && node ./out/index.js"
+    "prod": "yarn run build && node ./out/index.js"
   },
   "dependencies": {
     "discord.js": "^14.11.0",
