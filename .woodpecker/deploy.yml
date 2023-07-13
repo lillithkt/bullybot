@@ -1,0 +1,12 @@
+pipeline:
+  deploy:
+    image: alpine
+    secrets: [ ssh_private_key, server_ip, ssh_user, deploy_path ]
+    commands:
+      - apk add --no-cache openssh
+      - mkdir -p ~/.ssh
+      - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+      - chmod 600 ~/.ssh/id_rsa
+      - ssh-keyscan -t rsa "$SERVER_IP" >> ~/.ssh/known_hosts
+      - echo Deploying
+      - ssh -i ~/.ssh/id_rsa $SSH_USER@$SERVER_IP "cd $DEPLOY_PATH && git pull origin main && sudo docker compose up -d --build"
