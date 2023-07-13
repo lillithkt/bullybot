@@ -19,9 +19,9 @@ export function load() {
     configIsThisDir = false;
   } else {
     config = {
-      token: process.env.token || "",
-      prefix: process.env.prefix || "!",
-      owners: process.env.owners?.split(",") || [],
+      token: process.env.TOKEN || "",
+      prefix: process.env.PREFIX || "!",
+      owners: process.env.OWNERS?.split(",") || [],
     };
   }
 
