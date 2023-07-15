@@ -9,12 +9,12 @@ import {
 import { SlashCommand } from "../commands";
 
 const deathReasons = [
-  // "just randomly fucking died",
-  // "got an anvil dropped on their head lmao",
-  // "let the rot get to them",
+  "just randomly fucking died",
+  "got an anvil dropped on their head lmao",
+  "let the rot get to them",
   "was stabbed by <randomUser>",
-  // "exploded, popped like a balloon if you will.",
-  // "morphed into a balloon and floated away",
+  "exploded, popped like a balloon if you will.",
+  "morphed into a balloon and floated away",
 ];
 
 const command: SlashCommand = {
