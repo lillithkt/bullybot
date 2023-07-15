@@ -86,3 +86,5 @@ const stopCommand = new PrefixCommand({
     });
   },
 });
+
+export default [shellCommand, stopCommand];

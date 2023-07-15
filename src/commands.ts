@@ -151,9 +151,8 @@ export async function registerCommands() {
       | (SlashCommand | PrefixCommand)[];
 
     function registerCommand(command: SlashCommand | PrefixCommand) {
-      if (!command.data) {
-        prefixCommands.push(command as PrefixCommand);
-      } else {
+      if (!command.data) prefixCommands.push(command as PrefixCommand);
+      else {
         command = command as SlashCommand;
         slashCommandsMap.set(command.data.name, command);
         slashCommands.set(command.data.name, command.data);
