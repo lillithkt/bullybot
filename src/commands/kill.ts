@@ -20,7 +20,7 @@ const deathReasons = [
   "was popped like popcorn",
   "went splat",
   "turned into a silly salamander",
-  "blundered",
+  "blundered<:blunder:1106357379462864937><:blunder:1106357379462864937><:blunder:1106357379462864937>",
 ];
 
 const command: SlashCommand = {
