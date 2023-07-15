@@ -39,14 +39,13 @@ const command: SlashCommand = {
 
       const chosenUser =
         usersArray[Math.floor(Math.random() * usersArray.length)];
-      const nickname =
-        chosenUser.nickname ||
-        chosenUser.displayName ||
-        chosenUser.user.username;
-      death = death.replaceAll("<randomUser>", nickname);
+      death = death.replaceAll("<randomUser>", `<@${chosenUser.id}`);
     }
 
-    interaction.reply(`${target.user} ${death}`);
+    interaction.reply({
+      content: `${target.user} ${death}`,
+      allowedMentions: { users: [target.user!.id] },
+    });
   },
 };
 
