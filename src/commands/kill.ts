@@ -21,6 +21,7 @@ const deathReasons = [
   "went splat",
   "turned into a silly salamander",
   "blundered<:blunder:1106357379462864937><:blunder:1106357379462864937><:blunder:1106357379462864937>",
+  "lost their autism card",
 ];
 
 const command: SlashCommand = {
