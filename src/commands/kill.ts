@@ -69,6 +69,14 @@ const command: SlashCommand = {
       "dna matching <user> was discovered in ancient ruins and thus <user> fails to exist in the current age",
       "<user> was hit by the battle bus",
       "<user> toyed with the time space continuium",
+      "<user> drank the grimace shake",
+      "<randomUser> pushed <user> off the edge",
+      "<user> died of fall damage",
+      "<user> was harvested for scrap metal",
+      "<user> was killed by [Intentional Game Design]",
+      "<user> went out of bounds",
+      "<user> lost their blue hair and pronounce",
+      "<user> forgot",
     ];
     const target = interaction.options.get("user", true);
 
