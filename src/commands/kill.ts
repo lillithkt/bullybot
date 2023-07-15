@@ -39,7 +39,11 @@ const command: SlashCommand = {
 
       const chosenUser =
         usersArray[Math.floor(Math.random() * usersArray.length)];
-      death = death.replaceAll("<randomUser>", `<@${chosenUser.id}>`);
+      const nickname =
+        chosenUser.nickname ||
+        chosenUser.displayName ||
+        chosenUser.user.username;
+      death = death.replaceAll("<randomUser>", nickname);
     }
 
     interaction.reply(`${target.user} ${death}`);
