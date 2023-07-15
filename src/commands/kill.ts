@@ -1,9 +1,7 @@
 import {
-  ChannelType,
   ChatInputCommandInteraction,
   GuildMember,
   SlashCommandBuilder,
-  PermissionFlagsBits,
 } from "discord.js";
 
 import { SlashCommand } from "../commands";
@@ -79,6 +77,9 @@ const command: SlashCommand = {
       "<user> forgot",
     ];
     const target = interaction.options.get("user", true);
+
+    if (target.user?.id === interaction.member?.user?.id)
+      return interaction.reply({ content: "nuh uh", ephemeral: true });
 
     let death = deathReasons[Math.floor(Math.random() * deathReasons.length)];
 

@@ -1,13 +1,10 @@
 import {
-  ChannelType,
   ChatInputCommandInteraction,
-  GuildMember,
   SlashCommandBuilder,
   PermissionFlagsBits,
 } from "discord.js";
 
 import { SlashCommand } from "../commands";
-
 
 const command: SlashCommand = {
   data: new SlashCommandBuilder()
