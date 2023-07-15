@@ -9,20 +9,37 @@ import {
 import { SlashCommand } from "../commands";
 
 const deathReasons = [
-  "just randomly fucking died",
-  "got an anvil dropped on their head lmao",
-  "let the rot get to them",
-  "was stabbed by <randomUser>",
-  "exploded, popped like a balloon if you will.",
-  "morphed into a balloon and floated away",
-  "death.accident.water",
-  "was churned like butter",
-  "was popped like popcorn",
-  "went splat",
-  "turned into a silly salamander",
-  "blundered<:blunder:1106357379462864937><:blunder:1106357379462864937><:blunder:1106357379462864937>",
-  "lost their autism card",
-  "made like a bomb and BOOM!",
+  "<user> just randomly fucking died",
+  "<user> got an anvil dropped on their head lmao",
+  "<user> let the rot get to them",
+  "<user> was stabbed by <randomUser>",
+  "<user> exploded, popped like a balloon if you will.",
+  "<user> morphed into a balloon and floated away",
+  "<user> death.accident.water",
+  "<user> was churned like butter",
+  "<user> was popped like popcorn",
+  "<user> went splat",
+  "<user> turned into a silly salamander",
+  "<user> blundered<:blunder:1106357379462864937><:blunder:1106357379462864937><:blunder:1106357379462864937>",
+  "<user> lost their autism card",
+  "<user> made like a bomb and BOOM!",
+  "<user> barked too hard",
+  "<user> meowed too hard",
+  "<user> got unscrewed with a screwdriver",
+  "<user> got their brain eaten by <randomUser>",
+  "<user> turned into powder",
+  "<randomUser> went big cat mode and bit <user>'s head off",
+  "<user> took a dive in a nuclear power plant",
+  "<user> caused the heat death of the universe",
+  "<user> got late-onset sudden infant death syndrome",
+  "<randomUser> poked a bendy straw thru <user>'s soft spot",
+  "<user> said cya later alligator",
+  "<user> died of easily preventable illnesses",
+  "<user> died of the common cold",
+  "<user> took a bath with a toaster",
+  "<user> is more than 85% helium",
+  "<user> fell down the stairs, family guy style",
+  "<user> flew out of a car window like a mcdonalds napkin",
 ];
 
 const command: SlashCommand = {
@@ -36,6 +53,8 @@ const command: SlashCommand = {
     const target = interaction.options.get("user", true);
 
     let death = deathReasons[Math.floor(Math.random() * deathReasons.length)];
+
+    death = death.replaceAll("<user>", `<@${target.user?.id}>`);
 
     if (death.includes("<randomUser>")) {
       const users = await interaction.guild?.members.fetch({ limit: 1000 });
