@@ -16,6 +16,11 @@ const deathReasons = [
   "exploded, popped like a balloon if you will.",
   "morphed into a balloon and floated away",
   "death.accident.water",
+  "was churned like butter",
+  "was popped like popcorn",
+  "went splat",
+  "turned into a silly salamander",
+  "blundered",
 ];
 
 const command: SlashCommand = {
