@@ -15,6 +15,7 @@ const deathReasons = [
   "was stabbed by <randomUser>",
   "exploded, popped like a balloon if you will.",
   "morphed into a balloon and floated away",
+  "death.accident.water",
 ];
 
 const command: SlashCommand = {
