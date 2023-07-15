@@ -70,7 +70,7 @@ const command: SlashCommand = {
     }
 
     interaction.reply({
-      content: `${target.user} ${death}`,
+      content: death,
       allowedMentions: { users: [target.user!.id] },
     });
   },
