@@ -7,7 +7,7 @@ import {
 } from "discord.js";
 
 import { SlashCommand } from "../commands";
-import bot from "..";
+
 
 const command: SlashCommand = {
   data: new SlashCommandBuilder()
