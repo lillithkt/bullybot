@@ -17,4 +17,6 @@ VOLUME [ "/home/runner" ]
 
 COPY --chown=runner:runner  . .
 
+RUN yarn run build
+
 ENTRYPOINT [ "yarn", "run", "prod" ]
