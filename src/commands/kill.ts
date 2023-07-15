@@ -65,7 +65,7 @@ const command: SlashCommand = {
       `<user>'s location is ${Math.random() * (180 + 1) - 90} Latitude ${
         Math.random() * (360 + 1) - 180
       } Longitude`,
-      "<user went in a submarine to explore the titanic wreckage",
+      "<user> went in a submarine to explore the titanic wreckage",
       "dna matching <user> was discovered in ancient ruins and thus <user> fails to exist in the current age",
       "<user> was hit by the battle bus",
       "<user> toyed with the time space continuium",
