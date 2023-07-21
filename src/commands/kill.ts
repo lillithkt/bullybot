@@ -75,6 +75,7 @@ const command: SlashCommand = {
       "<user> went out of bounds",
       "<user> lost their blue hair and pronounce",
       "<user> forgot",
+      "<user> mate in 1 <:blunder:1106357379462864937>",
     ];
     const target = interaction.options.get("user", true);
 
