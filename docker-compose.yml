@@ -1,6 +1,7 @@
 version: '3'
 services:
   bullybot:
+    container_name: bullybot
     build: .
     volumes:
       - ./config.json:/home/runner/config.json:rw
