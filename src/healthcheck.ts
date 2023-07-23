@@ -14,5 +14,5 @@ if (process.env.ENABLE_HEALTHCHECK === "true") {
     res.end();
   });
 
-  server.listen(8080);
+  server.listen(80);
 }
