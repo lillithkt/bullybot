@@ -16,7 +16,13 @@ bot.on("ready", async () => {
   );
 });
 
-registerCallback(bot.isReady);
+registerCallback(() => {
+  try {
+    return bot.isReady();
+  } catch (e) {
+    return false;
+  }
+});
 
 bot.login(config.token);
 
