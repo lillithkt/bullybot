@@ -13,12 +13,11 @@ WORKDIR /home/runner
 
 COPY --chown=runner:runner package.json yarn.lock ./
 RUN yarn install
-VOLUME [ "/home/runner" ]
 
 COPY --chown=runner:runner  . .
 
+ENV ENABLE_HEALTHCHECK=true
 RUN yarn run build
 
-ENV ENABLE_HEALTHCHECK=true
 
 ENTRYPOINT [ "yarn", "run", "prod" ]
