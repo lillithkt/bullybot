@@ -94,6 +94,7 @@ const deathReasons = [
   "<user> went missing in 1987",
   "<user> IS THAT THE BITE OF 87?!?!??!?!??!?!?!?!?!??!?!?!?!?/1/1?!??!/?!?!/!",
   "<user> autism'd too hard",
+  "<user> got railed",
 ];
 
 const command: SlashCommand = {
