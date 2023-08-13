@@ -150,7 +150,10 @@ const command: SlashCommand = {
 
     interaction.reply({
       content: death,
-      allowedMentions: { users: [target.user!.id] },
+      allowedMentions: {
+        // Mentions target, log, and aenri respectively
+        users: [target.user!.id, "352916345211322380", "98133204636028928"],
+      },
     });
   },
 };
