@@ -8,8 +8,18 @@ const log = new Logger("Pfp", __filename);
 
 let oldPfp: string | undefined;
 
+let pfpListenerEnabled = false;
+
 export default async function changePfp(): Promise<boolean> {
   if (!config.pfpChannel) return false;
+  if (!pfpListenerEnabled) {
+    bot.on("messageCreate", async (msg) => {
+      if (msg.channel.id !== config.pfpChannel) return;
+      if (!msg.attachments.size) return;
+      changePfp();
+    });
+    pfpListenerEnabled = true;
+  }
   const channel = await bot.channels.fetch(config.pfpChannel);
   if (!channel) return false;
   const messages = await (channel as TextChannel).messages.fetch();
