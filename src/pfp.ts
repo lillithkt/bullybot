@@ -6,9 +6,10 @@ import pfp from "./commands/pfp";
 
 const log = new Logger("Pfp", __filename);
 
+let oldPfp: string | undefined;
+
 export default async function changePfp(): Promise<boolean> {
   if (!config.pfpChannel) return false;
-  log.log("Changing pfp...");
   const channel = await bot.channels.fetch(config.pfpChannel);
   if (!channel) return false;
   const messages = await (channel as TextChannel).messages.fetch();
@@ -16,18 +17,25 @@ export default async function changePfp(): Promise<boolean> {
   let success = false;
   while (!pfpChosen) {
     const message = messages.first();
-    if (!message?.attachments) return messages.delete(message!.id);
+    if (!message?.attachments) {
+      messages.delete(message!.id);
+      continue;
+    }
     let attachment: string | undefined;
     while (!attachment) {
       const _attachment = message.attachments.random();
-      if (_attachment?.url) attachment = _attachment.url;
+      if (!_attachment?.url) continue;
+      if (_attachment.url === oldPfp) continue;
+      attachment = _attachment.url;
     }
-    if (!attachment) return messages.delete(message!.id);
+    if (!attachment) {
+      messages.delete(message.id);
+      continue;
+    }
     try {
       await bot.user?.setAvatar(attachment);
       pfpChosen = true;
       success = true;
-      log.log(`Pfp changed! ${attachment}`);
     } catch (e) {
       // Ratelimit
       if ((e as DiscordAPIError).code !== 50035) console.error(e);
