@@ -95,6 +95,11 @@ const deathReasons = [
   "<user> IS THAT THE BITE OF 87?!?!??!?!??!?!?!?!?!??!?!?!?!?/1/1?!??!/?!?!/!",
   "<user> autism'd too hard",
   "<user> got railed",
+  "<user> got the pharoh's curse",
+  "<user> didnt replace the slab",
+  "<user> forgot to post ddofa",
+  "<user> WEEEEEEEEEEEEEEEEEEEEE",
+  "<user>'s psyop got leaked",
 ];
 
 const command: SlashCommand = {
