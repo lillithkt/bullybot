@@ -18,16 +18,32 @@ const command: SlashCommand = {
         .setName("message")
         .setDescription("The message to say")
         .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("color")
+        .setDescription("The color of the embed")
+        .setRequired(false)
     ),
+
   callback: async (interaction: ChatInputCommandInteraction) => {
     const messageContent = interaction.options.getString("message", true);
+
+    const colorChoice = interaction.options.getString("color", false);
+
+    let color = Math.floor(Math.random() * 16777215);
+
+    // Check if the color is valid hex code
+    if (colorChoice && colorChoice.match(/^#([0-9a-f]{3}){1,2}$/i)) {
+      color = parseInt(colorChoice.replace("#", ""), 16);
+    }
 
     const message = await interaction.channel?.send({
       embeds: [
         {
           title: `Anonymous`,
           description: messageContent,
-          color: Math.floor(Math.random() * 16777215),
+          color,
         },
       ],
     });
