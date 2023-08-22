@@ -67,9 +67,11 @@ const command: SlashCommand = {
       `<@${interaction.user.id}> said as <@${target.id}> in <#${channel.id}>: ${message}`
     );
 
+    const targetMember = interaction.guild.members.cache.get(target.id);
+
     await webhook.send({
       content: message,
-      username: target.username,
+      username: targetMember?.displayName ?? target.username,
       avatarURL: target.displayAvatarURL(),
     });
 
