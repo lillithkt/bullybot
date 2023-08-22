@@ -5,7 +5,9 @@ import {
 } from "discord.js";
 
 import { SlashCommand } from "../commands";
+import { Logger } from "../logger";
 
+const log = new Logger("SayAs", __filename);
 
 const command: SlashCommand = {
   data: new SlashCommandBuilder()
@@ -60,6 +62,10 @@ const command: SlashCommand = {
         avatar: interaction.client.user!.displayAvatarURL(),
       });
     }
+
+    log.log(
+      `<@${interaction.user.id}> said as <@${target.id}> in <#${channel.id}>: ${message}`
+    );
 
     await webhook.send({
       content: message,

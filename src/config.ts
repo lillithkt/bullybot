@@ -5,6 +5,7 @@ interface Config {
   token: string;
   prefix: string;
   owners: string[];
+  logChannel?: string;
 }
 let config: Config;
 
