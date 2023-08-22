@@ -6,6 +6,7 @@ interface Config {
   prefix: string;
   owners: string[];
   logChannel?: string;
+  pfpChannel?: string;
 }
 let config: Config;
 

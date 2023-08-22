@@ -3,6 +3,8 @@ import config from "./config";
 import { registerCommands, slashCommands, prefixCommands } from "./commands";
 import { registerCallback } from "./healthcheck";
 
+import changePfp from "./pfp";
+
 const bot = new Client({
   intents: ["Guilds", "MessageContent", "GuildMembers", "GuildMessages"],
 });
@@ -14,7 +16,11 @@ bot.on("ready", async () => {
       slashCommands.size + prefixCommands.length
     } commands!`
   );
+
+  changePfp();
 });
+
+setInterval(changePfp, 1000 * 60 * 10); // 10 minutes
 
 registerCallback(() => {
   try {
