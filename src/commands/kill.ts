@@ -100,6 +100,8 @@ const deathReasons = [
   "<user> forgot to post ddofa",
   "<user> WEEEEEEEEEEEEEEEEEEEEE",
   "<user>'s psyop got leaked",
+  // #general-afterdark
+  "<user> was horny outside <#1117114242546532422>",
 ];
 
 const command: SlashCommand = {
