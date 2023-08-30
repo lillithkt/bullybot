@@ -8,7 +8,7 @@ import { SlashCommand } from "../commands";
 
 const command: SlashCommand = {
   data: new SlashCommandBuilder()
-    .setName("toggleRole")
+    .setName("togglerole")
     .setDescription("Toggle a role on yourself")
     .addRoleOption((option) =>
       option.setName("role").setDescription("The role").setRequired(true)
