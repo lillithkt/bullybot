@@ -1,40 +1,19 @@
-import {
-  ChatInputCommandInteraction,
-  GuildMemberRoleManager,
-  PermissionFlagsBits,
-  SlashCommandBuilder,
-} from "discord.js";
-import { SlashCommand } from "../commands";
+import { GuildMemberRoleManager } from "discord.js";
+import { PrefixCommand } from "../commands";
 
-const command: SlashCommand = {
-  data: new SlashCommandBuilder()
-    .setName("togglerole")
-    .setDescription("Toggle a role on yourself")
-    .addRoleOption((option) =>
-      option.setName("role").setDescription("The role").setRequired(true)
-    )
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
-  callback: async (interaction: ChatInputCommandInteraction) => {
-    const role = interaction.options.getRole("role", true);
-
-    if (
-      (interaction.member!.roles as GuildMemberRoleManager).cache.has(role.id)
-    ) {
-      await (interaction.member!.roles as GuildMemberRoleManager).remove(
-        role.id
-      );
-      return interaction.reply({
-        content: `Removed role ${role.name}`,
-        ephemeral: true,
-      });
+export default new PrefixCommand({
+  name: "toggleRole",
+  description: "Toggles a role",
+  aliases: ["tr"],
+  usage: "<role>",
+  ownerOnly: true,
+  callback: async (msg, args) => {
+    if ((msg.member!.roles as GuildMemberRoleManager).cache.has(args[0])) {
+      await (msg.member!.roles as GuildMemberRoleManager).remove(args[0]);
+      return msg.reply(`Removed role ${args[0]}`);
     } else {
-      await (interaction.member!.roles as GuildMemberRoleManager).add(role.id);
-      return interaction.reply({
-        content: `Added role ${role.name}`,
-        ephemeral: true,
-      });
+      await (msg.member!.roles as GuildMemberRoleManager).add(args[0]);
+      return msg.reply(`Added role ${args[0]}`);
     }
   },
-};
-
-export default command;
+});
