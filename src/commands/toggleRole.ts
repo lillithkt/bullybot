@@ -1,7 +1,7 @@
 import {
   ChatInputCommandInteraction,
   GuildMemberRoleManager,
-  PermissionsBitField,
+  PermissionFlagsBits,
   SlashCommandBuilder,
 } from "discord.js";
 import { SlashCommand } from "../commands";
@@ -13,7 +13,7 @@ const command: SlashCommand = {
     .addRoleOption((option) =>
       option.setName("role").setDescription("The role").setRequired(true)
     )
-    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageRoles),
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
   callback: async (interaction: ChatInputCommandInteraction) => {
     const role = interaction.options.getRole("role", true);
 
