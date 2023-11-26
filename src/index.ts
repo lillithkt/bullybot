@@ -1,4 +1,4 @@
-import { Client } from "discord.js";
+import { Client, IntentsBitField } from "discord.js";
 import config from "./config";
 import { registerCommands, slashCommands, prefixCommands } from "./commands";
 import { registerCallback } from "./healthcheck";
@@ -6,7 +6,11 @@ import { registerCallback } from "./healthcheck";
 import changePfp from "./pfp";
 
 const bot = new Client({
-  intents: ["Guilds", "MessageContent", "GuildMembers", "GuildMessages"],
+  intents:
+    IntentsBitField.Flags.Guilds |
+    IntentsBitField.Flags.GuildMessages |
+    IntentsBitField.Flags.GuildMembers |
+    IntentsBitField.Flags.MessageContent,
 });
 
 bot.on("ready", async () => {
